@@ -12,7 +12,7 @@
 		4654F92713F10E2700BE97F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654F92613F10E2700BE97F7 /* main.m */; };
 		4654F92A13F10E2700BE97F7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4654F92813F10E2700BE97F7 /* Credits.rtf */; };
 		4654F92D13F10E2700BE97F7 /* GetFrameAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654F92C13F10E2700BE97F7 /* GetFrameAppDelegate.m */; };
-		4654F93013F10E2800BE97F7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4654F92E13F10E2800BE97F7 /* MainMenu.xib */; };
+		4654F93013F10E2800BE97F7 /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4654F92E13F10E2800BE97F7 /* Main.xib */; };
 		4654F93813F119D700BE97F7 /* GetFrameWinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654F93713F119D700BE97F7 /* GetFrameWinController.m */; };
 		4654F93A13F11A0300BE97F7 /* GetFrameWinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */; };
 /* End PBXBuildFile section */
@@ -30,7 +30,7 @@
 		4654F92913F10E2700BE97F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4654F92B13F10E2700BE97F7 /* GetFrameAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetFrameAppDelegate.h; sourceTree = "<group>"; };
 		4654F92C13F10E2700BE97F7 /* GetFrameAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetFrameAppDelegate.m; sourceTree = "<group>"; };
-		4654F92F13F10E2800BE97F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4654F92F13F10E2800BE97F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Main.xib; sourceTree = "<group>"; };
 		4654F93613F119D700BE97F7 /* GetFrameWinController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFrameWinController.h; sourceTree = "<group>"; };
 		4654F93713F119D700BE97F7 /* GetFrameWinController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFrameWinController.m; sourceTree = "<group>"; };
 		4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetFrameWinController.xib; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			children = (
 				4654F92B13F10E2700BE97F7 /* GetFrameAppDelegate.h */,
 				4654F92C13F10E2700BE97F7 /* GetFrameAppDelegate.m */,
-				4654F92E13F10E2800BE97F7 /* MainMenu.xib */,
+				4654F92E13F10E2800BE97F7 /* Main.xib */,
 				4654F92013F10E2700BE97F7 /* Supporting Files */,
 				4654F93613F119D700BE97F7 /* GetFrameWinController.h */,
 				4654F93713F119D700BE97F7 /* GetFrameWinController.m */,
@@ -162,7 +162,7 @@
 			files = (
 				4654F92413F10E2700BE97F7 /* InfoPlist.strings in Resources */,
 				4654F92A13F10E2700BE97F7 /* Credits.rtf in Resources */,
-				4654F93013F10E2800BE97F7 /* MainMenu.xib in Resources */,
+				4654F93013F10E2800BE97F7 /* Main.xib in Resources */,
 				4654F93A13F11A0300BE97F7 /* GetFrameWinController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,12 +199,12 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		4654F92E13F10E2800BE97F7 /* MainMenu.xib */ = {
+		4654F92E13F10E2800BE97F7 /* Main.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4654F92F13F10E2800BE97F7 /* en */,
 			);
-			name = MainMenu.xib;
+			name = Main.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -291,6 +291,7 @@
 				4654F93513F10E2800BE97F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

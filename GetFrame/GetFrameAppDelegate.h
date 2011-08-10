@@ -8,11 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface GetFrameAppDelegate : NSObject <NSApplicationDelegate> {
-@private
-    NSWindow *window;
-}
+@class GetFrameWinController;
 
-@property (assign) IBOutlet NSWindow *window;
+@interface GetFrameAppDelegate : NSObject <NSApplicationDelegate> {
+    GetFrameWinController *_winController;
+}
 
 @end

@@ -7,14 +7,19 @@
 //
 
 #import "GetFrameAppDelegate.h"
+#import "GetFrameWinController.h"
 
 @implementation GetFrameAppDelegate
 
-@synthesize window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    _winController = [[GetFrameWinController alloc] init];
+    [_winController showWindow:nil];
 }
 
+- (void)dealloc {
+    [_winController release];
+    [super dealloc];
+}
+    
 @end

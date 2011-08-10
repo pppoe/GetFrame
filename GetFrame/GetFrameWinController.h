@@ -14,10 +14,14 @@
     IBOutlet NSImageView *_imageView;
     IBOutlet NSScrollView *_scrollView;
     
-
+    IBOutlet NSTextField *_label;
+    IBOutlet NSTextField *_field;
+    
     //< For Zooming    
     NSSize _orgSize; //< Original Image Size
     float _zoomFactor;
+    
+    NSTrackingRectTag _curTrackingArea;
 }
 
 - (IBAction)openImage:(id)sender;

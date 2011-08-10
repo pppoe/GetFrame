@@ -15,6 +15,7 @@
 		4654F93013F10E2800BE97F7 /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4654F92E13F10E2800BE97F7 /* Main.xib */; };
 		4654F93813F119D700BE97F7 /* GetFrameWinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654F93713F119D700BE97F7 /* GetFrameWinController.m */; };
 		4654F93A13F11A0300BE97F7 /* GetFrameWinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */; };
+		4654FD1513F267C900BE97F7 /* GetFrameImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654FD1413F267C900BE97F7 /* GetFrameImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		4654F93613F119D700BE97F7 /* GetFrameWinController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFrameWinController.h; sourceTree = "<group>"; };
 		4654F93713F119D700BE97F7 /* GetFrameWinController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFrameWinController.m; sourceTree = "<group>"; };
 		4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetFrameWinController.xib; sourceTree = "<group>"; };
+		4654FD1313F267C900BE97F7 /* GetFrameImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFrameImageView.h; sourceTree = "<group>"; };
+		4654FD1413F267C900BE97F7 /* GetFrameImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFrameImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				4654F93613F119D700BE97F7 /* GetFrameWinController.h */,
 				4654F93713F119D700BE97F7 /* GetFrameWinController.m */,
 				4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */,
+				4654FD1313F267C900BE97F7 /* GetFrameImageView.h */,
+				4654FD1413F267C900BE97F7 /* GetFrameImageView.m */,
 			);
 			path = GetFrame;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				4654F92713F10E2700BE97F7 /* main.m in Sources */,
 				4654F92D13F10E2700BE97F7 /* GetFrameAppDelegate.m in Sources */,
 				4654F93813F119D700BE97F7 /* GetFrameWinController.m in Sources */,
+				4654FD1513F267C900BE97F7 /* GetFrameImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

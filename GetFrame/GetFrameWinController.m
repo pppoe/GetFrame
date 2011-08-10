@@ -63,6 +63,12 @@
     _zoomFactor = 1.0f;
     
     [_scrollView setDocumentView:_imageView];
+    
+    _curTrackingArea = [_imageView addTrackingRect:[_imageView bounds]
+                                             owner:self
+                                          userData:nil
+                                      assumeInside:YES];
+    
 }
 
 - (IBAction)openImage:(id)sender {
@@ -95,6 +101,12 @@
     _zoomFactor = MIN(kMaxZoomFactor, 2 * _zoomFactor);    
     
     [self zoomView:_imageView withFactor:_zoomFactor];
+    
+    [_imageView removeTrackingRect:_curTrackingArea];
+    [_imageView addTrackingRect:[_imageView bounds]
+                          owner:self
+                       userData:nil
+                   assumeInside:YES];
 }
 
 - (IBAction)zoomOut:(id)sender {
@@ -102,6 +114,48 @@
     _zoomFactor = MAX(kMinZoomFactor, _zoomFactor / 2.0f);    
     
     [self zoomView:_imageView withFactor:_zoomFactor];
+
+    [_imageView removeTrackingRect:_curTrackingArea];
+    [_imageView addTrackingRect:[_imageView bounds]
+                          owner:self
+                       userData:nil
+                   assumeInside:YES];
+}
+
+/////////////////////////////////////////////////////////////////////
+//< Events
+/////////////////////////////////////////////////////////////////////
+- (void)touchesBeganWithEvent:(NSEvent *)event {
+    
+}
+
+- (void)touchesMovedWithEvent:(NSEvent *)event {
+    
+}
+
+- (void)touchesEndedWithEvent:(NSEvent *)event {
+    
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+    [[self window] setAcceptsMouseMovedEvents:YES];
+    [[NSCursor crosshairCursor] set];
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent {
+    NSPoint pt = [theEvent locationInWindow];
+    NSLog(@"%f %f", pt.x, pt.y);
+    NSPoint newPt = [_imageView convertPointFromBase:pt];
+    NSLog(@"%f %f", newPt.x, newPt.y);
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent {
+    
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    [[self window] setAcceptsMouseMovedEvents:NO];
+    [[NSCursor arrowCursor] set];
 }
 
 @end
@@ -120,7 +174,8 @@
 
 - (void)adjustFrameForNewImage 
 {
-    
+    NSRect rect = [[_imageView image] alignmentRect];
+    NSLog(@"%f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 //    NSSize size = [[_imageView image] size];
 //    
 //    //< Keep the Left and Bottom Padding

@@ -2,7 +2,7 @@
 //  main.m
 //  GetFrame
 //
-//  Created by hli on 8/9/11.
+//  Created by haoxiang on 8/9/11.
 //  Copyright 2011 DEV. All rights reserved.
 //
 

@@ -2,11 +2,12 @@
 //  GetFrameWinController.m
 //  GetFrame
 //
-//  Created by hli on 8/9/11.
+//  Created by haoxiang on 8/9/11.
 //  Copyright 2011 DEV. All rights reserved.
 //
 
 #import "GetFrameWinController.h"
+#import "GetFrameImageView.h"
 
 /////////////////////////////////////////////////////////////////////
 //< Constants
@@ -14,8 +15,8 @@
 #define kMinWinWidth (400)
 #define kMinWinHeight (400)
 
-#define kMaxWinWidth (800)
-#define kMaxWinHeight (800)
+#define kMaxWinWidth (1024)
+#define kMaxWinHeight (968)
 
 #define kImagePadding (5)
 
@@ -30,7 +31,7 @@
 
 @interface GetFrameWinController (Private)
 
-- (void)adjustFrameForNewImage;
+- (void)updateTrackingArea;
 - (void)zoomView:(NSView *)view withFactor:(float)factor;
 
 @end
@@ -69,6 +70,8 @@
                                           userData:nil
                                       assumeInside:YES];
     
+    [_imageView setAutoresizingMask:NSViewMinXMargin|NSViewMaxXMargin|NSViewMinYMargin|NSViewMaxYMargin];
+    
 }
 
 - (IBAction)openImage:(id)sender {
@@ -85,9 +88,12 @@
         if (image)
         {
             [_imageView setImage:image];
-            [image release];
             
-            [self adjustFrameForNewImage];
+            [_imageView display];
+            
+            [self updateTrackingArea];
+
+            [image release];            
         }
     }
 }
@@ -102,11 +108,7 @@
     
     [self zoomView:_imageView withFactor:_zoomFactor];
     
-    [_imageView removeTrackingRect:_curTrackingArea];
-    [_imageView addTrackingRect:[_imageView bounds]
-                          owner:self
-                       userData:nil
-                   assumeInside:YES];
+    [self updateTrackingArea];
 }
 
 - (IBAction)zoomOut:(id)sender {
@@ -115,11 +117,7 @@
     
     [self zoomView:_imageView withFactor:_zoomFactor];
 
-    [_imageView removeTrackingRect:_curTrackingArea];
-    [_imageView addTrackingRect:[_imageView bounds]
-                          owner:self
-                       userData:nil
-                   assumeInside:YES];
+    [self updateTrackingArea];
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -144,9 +142,9 @@
 
 - (void)mouseMoved:(NSEvent *)theEvent {
     NSPoint pt = [theEvent locationInWindow];
-    NSLog(@"%f %f", pt.x, pt.y);
     NSPoint newPt = [_imageView convertPointFromBase:pt];
-    NSLog(@"%f %f", newPt.x, newPt.y);
+    NSPoint finalPt = [_imageView pointFromBasePoint:newPt];
+    NSLog(@"%f %f", finalPt.x, finalPt.y);
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent {
@@ -162,6 +160,14 @@
 
 @implementation GetFrameWinController (Private)
 
+- (void)updateTrackingArea {
+    [_imageView removeTrackingRect:_curTrackingArea];
+    _curTrackingArea = [_imageView addTrackingRect:[_imageView imageRect]
+                                             owner:self
+                                          userData:nil
+                                      assumeInside:YES];
+}
+
 - (void)zoomView:(NSView *)view withFactor:(float)factor {
     NSSize s = [view frame].size;
     NSPoint org = [view frame].origin;
@@ -170,40 +176,6 @@
     [[view animator] setFrame:NSMakeRect(ctrPt.x - newSize.width/2.0f, 
                                          ctrPt.y - newSize.height/2.0f,
                                          newSize.width, newSize.height)];
-}
-
-- (void)adjustFrameForNewImage 
-{
-    NSRect rect = [[_imageView image] alignmentRect];
-    NSLog(@"%f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-//    NSSize size = [[_imageView image] size];
-//    
-//    //< Keep the Left and Bottom Padding
-//    float leftPadding = _imageView.frame.origin.x;
-//    float bottomPadding = _imageView.frame.origin.y;
-//    
-//    //< Keep the Center Point
-//    NSSize winSize = NSMakeSize(MIN(MAX((size.width + 2 * kImagePadding + 2 * leftPadding), kMinWinWidth), kMaxWinWidth),
-//                                MIN(MAX((size.height + 2 * kImagePadding + 2 * bottomPadding), kMinWinHeight), kMaxWinHeight));
-//    NSRect oldWinFrame = [[self window] frame];
-//    NSPoint ctrPoint = NSMakePoint(oldWinFrame.origin.x + oldWinFrame.size.width/2.0f,
-//                                   oldWinFrame.origin.y + oldWinFrame.size.height/2.0f);
-//
-//    NSRect winFrame = NSMakeRect(ctrPoint.x - winSize.width/2.0f, 
-//                                 ctrPoint.y - winSize.height/2.0f, 
-//                                 winSize.width, winSize.height);
-//    [[self window] setFrame:winFrame
-//                    display:NO
-//                    animate:YES];
-//    
-//    NSRect rect = NSMakeRect((winSize.width - (size.width + 2*kImagePadding))/2.0f, 
-//                             (winSize.height - (size.height + 2*kImagePadding))/2.0f, 
-//                             (size.width + 2*kImagePadding), 
-//                             (size.height + 2*kImagePadding));
-//    [_imageView setFrame:rect];    
-//    
-//    [[self window] setMinSize:NSMakeSize(winFrame.size.width, winFrame.size.height)];
-    
 }
 
 @end

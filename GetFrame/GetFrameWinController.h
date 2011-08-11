@@ -2,16 +2,18 @@
 //  GetFrameWinController.h
 //  GetFrame
 //
-//  Created by hli on 8/9/11.
+//  Created by haoxiang on 8/9/11.
 //  Copyright 2011 DEV. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
+@class GetFrameImageView;
+
 @interface GetFrameWinController : NSWindowController {
 
 @private
-    IBOutlet NSImageView *_imageView;
+    IBOutlet GetFrameImageView *_imageView;
     IBOutlet NSScrollView *_scrollView;
     
     IBOutlet NSTextField *_label;

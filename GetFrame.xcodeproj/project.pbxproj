@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		462F79E513F4DCB10093F62A /* GetFrameSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462F79E413F4DCB10093F62A /* GetFrameSelectionView.m */; };
 		4654F91A13F10E2700BE97F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4654F91913F10E2700BE97F7 /* Cocoa.framework */; };
 		4654F92413F10E2700BE97F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4654F92213F10E2700BE97F7 /* InfoPlist.strings */; };
 		4654F92713F10E2700BE97F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654F92613F10E2700BE97F7 /* main.m */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		462F79E213F4D0BD0093F62A /* GetFrameImageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFrameImageViewDelegate.h; sourceTree = "<group>"; };
+		462F79E313F4DCB10093F62A /* GetFrameSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFrameSelectionView.h; sourceTree = "<group>"; };
+		462F79E413F4DCB10093F62A /* GetFrameSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFrameSelectionView.m; sourceTree = "<group>"; };
 		4654F91513F10E2700BE97F7 /* GetFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4654F91913F10E2700BE97F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4654F91C13F10E2700BE97F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -93,12 +97,15 @@
 				4654F92B13F10E2700BE97F7 /* GetFrameAppDelegate.h */,
 				4654F92C13F10E2700BE97F7 /* GetFrameAppDelegate.m */,
 				4654F92E13F10E2800BE97F7 /* Main.xib */,
-				4654F92013F10E2700BE97F7 /* Supporting Files */,
 				4654F93613F119D700BE97F7 /* GetFrameWinController.h */,
 				4654F93713F119D700BE97F7 /* GetFrameWinController.m */,
 				4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */,
 				4654FD1313F267C900BE97F7 /* GetFrameImageView.h */,
 				4654FD1413F267C900BE97F7 /* GetFrameImageView.m */,
+				4654F92013F10E2700BE97F7 /* Supporting Files */,
+				462F79E213F4D0BD0093F62A /* GetFrameImageViewDelegate.h */,
+				462F79E313F4DCB10093F62A /* GetFrameSelectionView.h */,
+				462F79E413F4DCB10093F62A /* GetFrameSelectionView.m */,
 			);
 			path = GetFrame;
 			sourceTree = "<group>";
@@ -183,6 +190,7 @@
 				4654F92D13F10E2700BE97F7 /* GetFrameAppDelegate.m in Sources */,
 				4654F93813F119D700BE97F7 /* GetFrameWinController.m in Sources */,
 				4654FD1513F267C900BE97F7 /* GetFrameImageView.m in Sources */,
+				462F79E513F4DCB10093F62A /* GetFrameSelectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

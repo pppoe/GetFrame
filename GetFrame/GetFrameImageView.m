@@ -7,11 +7,13 @@
 //
 
 #import "GetFrameImageView.h"
+#import "GetFrameImageViewDelegate.h"
 
 @implementation GetFrameImageView
 @synthesize image = _image;
 @synthesize imageRect = _imageRect;
 @synthesize originPoint = _originPoint;
+@synthesize delegate = _delegate;
 
 - (void)drawRect:(NSRect)dirtyRect {
     
@@ -36,6 +38,11 @@
                    fraction:1.0f];
     
     _originPoint = NSMakePoint(NSMinX(_imageRect), NSMaxY(_imageRect));
+    
+    if ([self.delegate respondsToSelector:@selector(rectRenderFinishedInView:)])
+    {
+        [self.delegate rectRenderFinishedInView:self];
+    }
 }
 
 - (void)dealloc

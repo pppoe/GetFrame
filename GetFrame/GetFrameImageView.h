@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol GetFrameImageViewDelegate;
 
 @interface GetFrameImageView : NSView {
 @private
@@ -16,11 +17,14 @@
     NSRect _imageRect;
     
     NSPoint _originPoint;
+    
+    id<GetFrameImageViewDelegate> _delegate;
 }
 
 @property (nonatomic, assign) NSPoint originPoint;
 @property (nonatomic, readonly) NSRect imageRect;
 @property (nonatomic, retain) NSImage *image;
+@property (nonatomic, assign) id<GetFrameImageViewDelegate> delegate;
 
 - (NSPoint)pointFromBasePoint:(NSPoint)basePoint;
 

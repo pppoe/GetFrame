@@ -9,6 +9,13 @@
 #import <Cocoa/Cocoa.h>
 
 @class GetFrameImageView;
+@class GetFrameSelectionView;
+
+typedef enum {
+    EnumTrackingNone,  
+    EnumTrackingPoint,  
+    EnumTrackingSelection,  
+} EnumTrackingMode;
 
 @interface GetFrameWinController : NSWindowController {
 
@@ -19,11 +26,22 @@
     IBOutlet NSTextField *_label;
     IBOutlet NSTextField *_field;
     
+    GetFrameSelectionView *_selectionView;
+    
     //< For Zooming    
     NSSize _orgSize; //< Original Image Size
     float _zoomFactor;
     
     NSTrackingRectTag _curTrackingArea;
+    
+    //< For Dragging and Selection
+    NSPoint _startBasePt;
+    EnumTrackingMode _trackingMode;
+    BOOL _acceptSelection;
+    
+    //< Info
+    NSRect _curRect;
+    NSPoint _curPoint;
 }
 
 - (IBAction)openImage:(id)sender;
@@ -31,5 +49,9 @@
 - (IBAction)modeGetFrame:(id)sender;
 - (IBAction)zoomIn:(id)sender;
 - (IBAction)zoomOut:(id)sender;
+
+@property (nonatomic, assign) NSRect curRect;
+@property (nonatomic, assign) NSPoint curPoint;
+@property (nonatomic, assign) EnumTrackingMode trackingMode;
 
 @end

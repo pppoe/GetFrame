@@ -55,4 +55,13 @@
     return NSMakePoint(basePoint.x - self.originPoint.x, -(basePoint.y - self.originPoint.y));
 }
 
+- (void)setImage:(NSImage *)image {
+    if (image != _image)
+    {
+        [_image release];
+        _image = [image retain];
+        [self setFrameSize:[image size]];
+    }
+}
+
 @end

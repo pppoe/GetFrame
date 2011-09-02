@@ -10,10 +10,17 @@
 
 @interface GetFrameSelectionView : NSBox {
 @private
-    id target;
-    SEL selector;
+    id targetRelease;
+    SEL selectorRelease;
+
+    id targetMoved;
+    SEL selectorMoved;
+
+    //< When User's Mouse located in this area, it is able to resize the current View
+    NSTrackingArea *resizeArea;
 }
 
 - (void)setDragReleaseTarget:(id)theTarget andSelector:(SEL)theSelector;
+- (void)setDragMovedTarget:(id)theTarget andSelector:(SEL)theSelector;
 
 @end

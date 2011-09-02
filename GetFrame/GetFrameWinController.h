@@ -12,10 +12,11 @@
 @class GetFrameSelectionView;
 
 typedef enum {
-    EnumTrackingNone,  
-    EnumTrackingPoint,  
-    EnumTrackingSelection,  
-} EnumTrackingMode;
+    OutputFormatModePlainRect,
+    OutputFormatModeCGRect,
+    OutputFormatModeNSRect,
+    OutputFormatModeCount
+} OutputFormatMode;
 
 @interface GetFrameWinController : NSWindowController {
 
@@ -27,31 +28,28 @@ typedef enum {
     IBOutlet NSTextField *_field;
     
     GetFrameSelectionView *_selectionView;
-    
-    //< For Zooming    
-    NSSize _orgSize; //< Original Image Size
-    float _zoomFactor;
-    
+        
     NSTrackingRectTag _curTrackingArea;
     
     //< For Dragging and Selection
     NSPoint _startBasePt;
-    EnumTrackingMode _trackingMode;
-    BOOL _acceptSelection;
     
     //< Info
     NSRect _curRect;
-    NSPoint _curPoint;
+    
+    NSString *_outputFormat;
+    
+    //< Flag
+    BOOL _acceptSelection;
+    BOOL _isSelecting;
+    OutputFormatMode _mode;
 }
 
 - (IBAction)openImage:(id)sender;
 
-- (IBAction)modeGetFrame:(id)sender;
-- (IBAction)zoomIn:(id)sender;
-- (IBAction)zoomOut:(id)sender;
+- (IBAction)switchOutputFormat:(id)sender;
 
 @property (nonatomic, assign) NSRect curRect;
-@property (nonatomic, assign) NSPoint curPoint;
-@property (nonatomic, assign) EnumTrackingMode trackingMode;
+@property (nonatomic, retain) NSString *outputFormat;
 
 @end

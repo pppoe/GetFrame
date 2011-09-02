@@ -183,6 +183,36 @@
     [self updateFieldContent];
 }
 
+- (void)keyDown:(NSEvent *)theEvent {
+    if (![_selectionView isHidden] && !_isSelecting)
+    {
+        if ([[theEvent characters] length] > 0)
+        {
+            unichar c = [[theEvent characters] characterAtIndex:0];
+            NSPoint org = [_selectionView frame].origin;
+            switch (c) {
+                case NSLeftArrowFunctionKey:
+                    org.x--;
+                    break;
+                case NSRightArrowFunctionKey:
+                    org.x++;
+                    break;
+                case NSUpArrowFunctionKey:
+                    org.y++;
+                    break;
+                case NSDownArrowFunctionKey:
+                    org.y--;
+                    break;
+                default:
+                    break;
+            }
+            [_selectionView setFrameOrigin:org];
+            [self selectionMoved];
+            [self updateFieldContent];
+        }
+    }
+}
+
 @end
 
 @implementation GetFrameWinController (Private) 

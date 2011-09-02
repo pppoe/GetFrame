@@ -186,27 +186,62 @@
 - (void)keyDown:(NSEvent *)theEvent {
     if (![_selectionView isHidden] && !_isSelecting)
     {
-        if ([[theEvent characters] length] > 0)
+        if ([[theEvent charactersIgnoringModifiers] length] > 0)
         {
-            unichar c = [[theEvent characters] characterAtIndex:0];
-            NSPoint org = [_selectionView frame].origin;
-            switch (c) {
-                case NSLeftArrowFunctionKey:
-                    org.x--;
-                    break;
-                case NSRightArrowFunctionKey:
-                    org.x++;
-                    break;
-                case NSUpArrowFunctionKey:
-                    org.y++;
-                    break;
-                case NSDownArrowFunctionKey:
-                    org.y--;
-                    break;
-                default:
-                    break;
+            unichar c = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
+            NSUInteger modifier = [NSEvent modifierFlags];
+            if (modifier &  NSShiftKeyMask)
+            {
+                NSSize sz = [_selectionView frame].size;
+                NSPoint org = [_selectionView frame].origin;
+                switch (c) {
+                    case NSLeftArrowFunctionKey:
+                        if (sz.width > 0)
+                        {
+                            sz.width--;
+                        }
+                        break;
+                    case NSRightArrowFunctionKey:
+                        sz.width++;
+                        break;
+                    case NSUpArrowFunctionKey:
+                        if (sz.height > 0)
+                        {
+                            org.y++;
+                            sz.height--;
+                        }
+                        break;
+                    case NSDownArrowFunctionKey:
+                        org.y--;
+                        sz.height++;
+                        break;
+                    default:
+                        break;
+                }
+                [_selectionView setFrameSize:sz];
+                [_selectionView setFrameOrigin:org];
             }
-            [_selectionView setFrameOrigin:org];
+            else
+            {
+                NSPoint org = [_selectionView frame].origin;
+                switch (c) {
+                    case NSLeftArrowFunctionKey:
+                        org.x--;
+                        break;
+                    case NSRightArrowFunctionKey:
+                        org.x++;
+                        break;
+                    case NSUpArrowFunctionKey:
+                        org.y++;
+                        break;
+                    case NSDownArrowFunctionKey:
+                        org.y--;
+                        break;
+                    default:
+                        break;
+                }
+                [_selectionView setFrameOrigin:org];
+            }
             [self selectionMoved];
             [self updateFieldContent];
         }

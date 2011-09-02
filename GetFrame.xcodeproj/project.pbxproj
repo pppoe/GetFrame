@@ -17,6 +17,7 @@
 		4654F93813F119D700BE97F7 /* GetFrameWinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654F93713F119D700BE97F7 /* GetFrameWinController.m */; };
 		4654F93A13F11A0300BE97F7 /* GetFrameWinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */; };
 		4654FD1513F267C900BE97F7 /* GetFrameImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4654FD1413F267C900BE97F7 /* GetFrameImageView.m */; };
+		470E6DF914111FF5000640B8 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 470E6DF814111FF5000640B8 /* icon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		4654F93913F11A0300BE97F7 /* GetFrameWinController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetFrameWinController.xib; sourceTree = "<group>"; };
 		4654FD1313F267C900BE97F7 /* GetFrameImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetFrameImageView.h; sourceTree = "<group>"; };
 		4654FD1413F267C900BE97F7 /* GetFrameImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetFrameImageView.m; sourceTree = "<group>"; };
+		470E6DF814111FF5000640B8 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		4654F92013F10E2700BE97F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				470E6DF814111FF5000640B8 /* icon.icns */,
 				4654F92113F10E2700BE97F7 /* GetFrame-Info.plist */,
 				4654F92213F10E2700BE97F7 /* InfoPlist.strings */,
 				4654F92513F10E2700BE97F7 /* GetFrame-Prefix.pch */,
@@ -176,6 +179,7 @@
 				4654F92A13F10E2700BE97F7 /* Credits.rtf in Resources */,
 				4654F93013F10E2800BE97F7 /* Main.xib in Resources */,
 				4654F93A13F11A0300BE97F7 /* GetFrameWinController.xib in Resources */,
+				470E6DF914111FF5000640B8 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +269,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GetFrame/GetFrame-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "GetFrame/GetFrame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -280,8 +285,11 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GetFrame/GetFrame-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "GetFrame/GetFrame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

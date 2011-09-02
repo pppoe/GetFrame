@@ -172,6 +172,7 @@
 
 - (void)mouseUp:(NSEvent *)theEvent {
     _isSelecting = NO;
+    [[_selectionView window] makeFirstResponder:_selectionView];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
